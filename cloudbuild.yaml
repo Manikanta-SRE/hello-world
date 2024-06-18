@@ -1,0 +1,7 @@
+steps:
+  - name: 'gcr.io/cloudbuild/docker'
+    args: ['build', '-t', 'us-docker.pkg.dev/helical-button-425403-t3/cloudrun/mani-cicd:latest', '.']
+  - name: 'gcr.io/cloudbuild/docker'
+    args: ['push', 'us-docker.pkg.dev/helical-button-425403-t3/cloudrun/mani-cicd:latest']
+  - name: 'gcr.io/cloudbuild/cloudrun'
+    args: ['deploy', 'mani-cicd', '--image', 'us-docker.pkg.dev/helical-button-425403-t3/cloudrun/mani-cicd:latest', '--region', 'us-central1', '--platform', 'managed']
