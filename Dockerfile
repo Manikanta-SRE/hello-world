@@ -11,7 +11,7 @@ COPY app.py /app
 RUN pip install requests
 
 #Expose the port of your application listens on
-EXPOSE 80
+EXPOSE 8080
 
 # Run the Python script when the container launches
 CMD ["python", "app.py"]
